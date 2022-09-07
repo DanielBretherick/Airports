@@ -41,20 +41,28 @@ public class Graph {
         }
         for (int i = 0; i < aeroportos.size(); i++) {
             for (int j = 1; j < aeroportos.size(); j++) {
-                double weight = airportWeight(aeroportos.get(i), aeroportos.get(j));
-                directedGraph.addEdge(aeroportos.get(i).getNome(), aeroportos.get(j).getNome());
-                directedGraph.setEdgeWeight(aeroportos.get(i).getNome(), aeroportos.get(j).getNome(), weight);
+                if(i != j) {
+                    double weight = airportWeight(aeroportos.get(i), aeroportos.get(j));
+                    directedGraph.addEdge(aeroportos.get(i).getNome(), aeroportos.get(j).getNome());
+                    directedGraph.setEdgeWeight(aeroportos.get(i).getNome(), aeroportos.get(j).getNome(), weight);
+                }
             }
         }
         airportGraph = directedGraph;
         System.out.println();
+
     }
     public String dijkstraAlg( String aeroIn, String aeroOut){
-        System.out.println("Shortest path from "+ aeroIn+ " to" + aeroOut);
+        System.out.println("Menor caminho de "+ aeroIn+ "para " + aeroOut);
+        double weight = airportGraph.getEdgeWeight(airportGraph.getEdge(aeroIn,aeroOut));
+        airportGraph.removeEdge(aeroIn, aeroOut);
         DijkstraShortestPath<String, DefaultWeightedEdge> dijkstraAlg =
                 new DijkstraShortestPath<>(airportGraph);
         ShortestPathAlgorithm.SingleSourcePaths<String, DefaultWeightedEdge> iPaths = dijkstraAlg.getPaths(aeroIn);
         System.out.println(iPaths.getPath(aeroOut) + "\n");
+        airportGraph.addEdge(aeroIn,aeroOut);
+        airportGraph.setEdgeWeight(aeroIn,aeroOut, weight);
+
 
         return iPaths.getPath(aeroOut) + "\n";
     }

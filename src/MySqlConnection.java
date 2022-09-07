@@ -40,7 +40,7 @@ public class MySqlConnection {
             Statement stmt;
             stmt = connection.createStatement();
             stmt.execute("INSERT INTO search (saida,chegada,caminho) "
-                    + "VALUES ('Lokesh','Gupta','oi')");
+                    + "VALUES ('"+ aeroIn +"','"+ aeroOut + "','" + path +"')");
 
             connection.close();
         } catch(Exception e){
