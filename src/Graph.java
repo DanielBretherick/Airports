@@ -1,9 +1,7 @@
 import org.jgrapht.alg.interfaces.ShortestPathAlgorithm;
 import org.jgrapht.alg.shortestpath.DijkstraShortestPath;
 import org.jgrapht.graph.*;
-
 import java.util.*;
-
 import static java.lang.Math.*;
 
 public class Graph {
@@ -31,7 +29,6 @@ public class Graph {
 
         return 6368.1 * c;
     }
-
     public  Graph(LinkedList<Airport> aeroportos) {
         SimpleWeightedGraph<String, DefaultWeightedEdge> directedGraph =
                 new SimpleWeightedGraph<String, DefaultWeightedEdge>(DefaultWeightedEdge.class);

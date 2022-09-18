@@ -2,8 +2,6 @@ import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
 
-
-
 public class MySqlConnection {
     static String password = "Jr3d8492gz";
     static String user = "root";
@@ -12,10 +10,10 @@ public class MySqlConnection {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbcvideo", user, password);
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("select * from planilhaAeroportos");
-            System.out.println("Aero" + "    "+ "Estado"+ "     " + "Cidade" );
-            System.out.println("-----------------------------");
+            System.out.printf("%-25s%-25s%-15s\n","Aero", "Estado","Cidade" );
+            System.out.println("------------------------------------------------------------");
             while(resultSet.next()){
-                System.out.println(resultSet.getString("initials") + "    "+ resultSet.getString("state")+"     " + resultSet.getString("city") );
+                System.out.printf("%-25s%-25s%-15s\n",resultSet.getString("initials"), resultSet.getString("state"), resultSet.getString("city") );
             }
 
         } catch(Exception e){

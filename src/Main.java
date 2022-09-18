@@ -9,7 +9,7 @@ public class Main {
 
         Graph teste = new Graph(airports);
 
-        System.out.println("Digite o aeroporto de saída:");
+        System.out.println("Digite o aeroporto de saida:");
         Scanner scanner = new Scanner(System.in);
         String aeroIn = scanner.next();
         System.out.println("Digite o aeroporto de chegada:");
