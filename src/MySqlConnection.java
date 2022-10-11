@@ -3,7 +3,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class MySqlConnection {
-    static String password = "Jr3d8492gz";
+    static String password = "password";
     static String user = "root";
     public static void List(){
         try{
